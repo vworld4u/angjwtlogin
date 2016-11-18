@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel-header">
+            <div class="text-center">
+                <h3 class="text-light text-white">
+                    <span class="text-lightred">{{$ctrl.appName}}</span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="container text-center" style="width:430px;">
+                <h5 class="text-light text-greensea">{{$ctrl.title}}</h5>
+
+                <form name="form" class="form-validation text-left" novalidate="">
+
+                    <div class="form-group">
+                        <label class="text-left">Name</label>
+                        <input type="text" class="form-control underline-input" placeholder="Name" ng-model="$ctrl.user.name" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                    <div class="form-group">
+                        <label class="text-left">Email Address</label>
+                        <input type="email" class="form-control underline-input" placeholder="Email" ng-model="$ctrl.user.email" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                    <div class="form-group">
+                        <label class="text-left">Date of Birth</label>
+                        <input type="date" class="form-control underline-input" placeholder="Date of Birth" ng-model="$ctrl.user.dateOfBirth" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                    <div class="form-group">
+                        <label class="text-left">Password</label>
+                        <input type="password" placeholder="Password" class="form-control underline-input" ng-model="$ctrl.user.password" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                    <div class="form-group">
+                        <label>Type</label>
+                        <br/>
+                        <div class="btn-group " role="group">
+                            <button type="button" class="btn btn-primary" ng-model="$ctrl.user.userType" uib-btn-radio="'Teacher'">Teacher</button>
+                            <button type="button" class="btn btn-primary" ng-model="$ctrl.user.userType" uib-btn-radio="'Student'">Student</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-left mt-20">
+                        <button type="button" class="btn btn-primary b-0 br-2 mr-5" ng-click="$ctrl.signup();" ng-disabled="form.$invalid || $ctrl.loading"><i class="fa fa-spinner fa-spin fa-lg" ng-if="$ctrl.loading"></i>Signup</button>
+                        <button type="button" class="btn btn-warning pull-right" ng-click="$ctrl.cancel();" ng-disabled="form.$invalid || $ctrl.loading">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <hr />
+
+            <div class="social-login text-left">
+                <h5 class="text-danger">{{$ctrl.errorMessage}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

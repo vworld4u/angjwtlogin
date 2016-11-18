@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="text-center">
+            <h3 class="text-light text-white">
+                <span class="text-lightred">{{$ctrl.appName}}</span>
+            </h3>
+        </div>
+
+        <div class="container text-center" style="width:430px;">
+            <h5 class="text-light text-greensea">{{$ctrl.title}}</h5>
+
+            <form name="form" class="form-validation text-left" novalidate="">
+
+                <div class="form-group">
+                    <label class="text-left">Email Address</label>
+                    <input type="email" class="form-control underline-input" placeholder="Email" ng-model="$ctrl.credentials.email" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                <div class="form-group">
+                    <label class="text-left">Password</label>
+                    <input type="password" placeholder="Password" class="form-control underline-input" ng-model="$ctrl.credentials.password" ng-keyup="$event.keyCode === 13 && $ctrl.login()" required> </div>
+
+                <div class="form-group text-left mt-20">
+                    <button type="button" class="btn btn-primary b-0 br-2 mr-5" ng-click="$ctrl.login();" ng-disabled="form.$invalid || $ctrl.logging"><i class="fa fa-spinner fa-spin fa-lg" ng-if="$ctrl.logging===true"></i>Login</button>
+                    <a ui-sref="register" class="pull-right btn btn-success">I want to sign up now</a>
+                </div>
+            </form>
+
+            <hr />
+
+            <div class="social-login text-left">
+                <h5 class="text-danger">{{$ctrl.errorMessage}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
